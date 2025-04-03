@@ -18,6 +18,24 @@ namespace OutSystems.NssAdvanced_Excel
 
     public class CssAdvanced_Excel : IssAdvanced_Excel
     {
+		/// <summary>
+		/// Freeze cells, defined by row and column numbers.
+		/// Example:
+		/// - Choosing row = 2, column = 1 will freeze the first row.
+		/// - Choosing row = 1, column = 2 will freeze the first column.
+		/// </summary>
+		/// <param name="ssWorksheet">Worksheet on which the cell resides</param>
+		/// <param name="ssRow">Row Number</param>
+		/// <param name="ssColumn">Column Number</param>
+		public void MssCell_Freeze(object ssWorksheet, int ssRow, int ssColumn) {
+
+            // Select the worksheet
+            ExcelWorksheet ws;
+            ws = (ExcelWorksheet)ssWorksheet;
+
+            // Freeze selected rows and columns
+            ws.View.FreezePanes(ssRow, ssColumn);
+        } // MssCell_Freeze
 
 		/// <summary>
 		/// Action to convert Hex code of color to RGB value
